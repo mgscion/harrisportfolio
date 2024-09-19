@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Project Title - Matthew Harris Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo">Matthew Harris</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_me.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/matthew-harris-482693247/" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.instagram.com/mattt.harris/" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+            <li><a href="https://github.com/mgscion" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Project Section -->
+        <section id="project" class="project">
+            <header class="major">
+                <h1>SIEM Lab</h1>
+                <p>I wanted to create my own Security Information and Event Management Lab using Elastic and utilize Kali Linux to demonstrate what the dashboard feeds would look like in a SOC. 
+                    This helped me gain understanding and hands on experience with the Elastic Stack and its components. The hands-on experience allowed me to gain practical 
+                    insights into setting up and managing a SOC environment, which is crucial for understanding the day-to-day operations of security professionals.</p>
+            </header>
+
+            <!-- Description Section -->
+            <section class="description">
+                <h2>Description</h2>
+                <p>A SIEM lab is a software solution that collects, analyzes, and correlates security event data from multiple sources in real-time. My home lab
+                    uses Elastic, a set of open-source tools designed for searching, analyzing, and visualizing log data in real time, is used as the main driver in this lab. I created
+                    two dashboards that allow me to see certain traffic on the virtual machine
+                    running Kali Linux. This was so I was able to see the host flood my SIEM with data to prove it worked.</p>
+            </section>
+
+            <!-- Description of Installation and Usage -->
+            <section class="description">
+                <h2>Setting up the Dashboard</h2>
+                <h4>Create an Elastic account and install Elastic Defend</h4>
+                <p>Start a free trial, create an Elasticsearch deployment, and choose your region and deployment size.</p>
+                <h4>Install Kali Linux and connect the Elastic service to Kali</h4>
+                <code>curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.15.1-linux-x86_64.tar.gz
+                    tar xzvf elastic-agent-8.15.1-linux-x86_64.tar.gz
+                    cd elastic-agent-8.15.1-linux-x86_64
+                    sudo ./elastic-agent install --url=https://33267d64fcab4abfa38960bab031cb8b.fleet.eastus2.azure.elastic-cloud.com:443 --enrollment-token=UTRxSXc1RUJocXUwbjBRdFhnZnE6YTFKbEZHVUtSaUNMUkxlaDk3SFZmQQ==<br></code>
+                <p>Verify the installation</p>
+                <code>sudo systemctl list-units --type=service | grep elastic-agent</code>
+                <p>Enable the service</p>
+                <code>sudo systemctl enable elastic-agent.service</code>
+                <h4>Generating Security Events on the Kali VM using Nmap</h4>
+                <p>Remember to use Nmap responsibly, never conduct scans on a real host. Generate some security events by running commands such as 
+                    "sudo nmap localhost" "sudo nmap -sS localhost" 
+                </p>
+                <h4>Create a Dashboard to Visualize the Events</h4>
+                <p>Create a dashboard by naviagting to Analytics > Dashboard, click on "Add Visualization."
+                    I used these metrics: "Bar Visual" for visualization display, "@timestamp" for X-axis, and "Count of records" for Y-axis.
+                </p>
+                <img src="images/SOCDashboard.png" alt="Screenshot 1">
+                <h4>Creating a Detection Rule for Nmap Scans.</h4>
+                <p>I wanted to create an alert everytime my SIEM detected a Nmap Scan. Under the alerts tab in Elastic Defend select "Manage Rules." 
+                    Select “Create new rule” in the box at the top right. Select the “Custom query” Rule type. Under “Custom query,” type event.action:
+                     “nmap_scan” which is the condition for the rule and will match all events with the action “nmap_scan.” Next, click “Continue.” </p>
+                <p>Fill in the “About rule” section however you prefer. In my example, the severity level is set to High with a Default risk score of 75. Click “Continue."</p>
+                <p>Runtime for rules can be adjusted under “Schedule rule”. For my example, I chose the scan to run once every five minutes.</p>
+                <p>In the "Rules Action" section, there are actions that could be taken when the rule is triggered. For my alert, I wanted an email sent to me if a Nmap scan was detected.</p>
+                <img src="images/DetectionRule1.png" alt="Screenshot 2">
+                <img src="images/DetectionRule2.png" alt="Screenshot 3">
+                <h4>Other Visualizations Created</h4>
+                <p>In addtion to the Nmap Scans visualization, I also created an artifacts and CPU usage visualization. These track the artifacts created on the host over time and the CPU usage of the host.</p>
+                <img src="images/ArtifactsandCPU.png" alt="Screenshot 4">
+            </section>
+        </section>
+
+        <!-- What I learned -->
+        <section class="description">
+            <h2>What I learned</h2>
+            <p>This was a learning curve because I have never used Elastic or any of its tools before this project. I gained valuable hands on experience 
+                and taught me to visualize and analyze security data in real-time, enhancing my skills in threat detection and incident response. 
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section class="split contact">
+            <section class="alt">
+                <h3>Email</h3>
+                <p>MGHarris1110@outlook.com</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p>(412) 230-6331</p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="https://www.linkedin.com/in/matthew-harris-482693247/" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://www.instagram.com/mattt.harris/" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/mgscion" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Cyber News Scraper - Matthew Harris Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo">Matthew Harris</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_me.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/matthew-harris-482693247/" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.instagram.com/mattt.harris/" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+            <li><a href="https://github.com/mgscion" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Project Section -->
+        <section id="project" class="project">
+            <header class="major">
+                <h1>Cybersecurity News Scraper</h1>
+                <p>I wanted a more efficient method of recieving news related to cybersecurity.</p>
+            </header>
+
+            <!-- Screenshot Section -->
+            <section class="screenshots">
+                <div class="screenshot-container">
+                    <img src="images/Screenshot 2024-08-05 231951.png" alt="Screenshot 1">
+                </div>
+            </section>
+
+            <!-- Description Section -->
+            <section class="description">
+                <h2>Description</h2>
+                <p>Using Python, this program uses the Beautiful Soup Python Library to web scrape news from three news sources, "Krebs on Security," "The Hacker News," and 
+                    "Dark Reading" The tool fetches the top five most recent articles from each source and displays them in a scrollable Tkinter window. These news sources can be changed. 
+                    However, each news source has different formatting and will require changes to the scraper.</p>
+            </section>
+
+
+            <!-- Technologies Section -->
+            <section class="technologies">
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Beautiful Soup: Python Library used to pull data out of HTML and XML files.</li>
+                    <li>Tkinter: The tkinter package (“Tk interface”) is the standard Python interface to the Tcl/Tk GUI toolkit. 
+                        Both Tk and tkinter are available on most Unix platforms, including macOS, as well as on Windows systems. </li>
+                </ul>
+            </section>
+
+            <!-- Description of Installation and Usage -->
+            <section class="description">
+                <h2>Installation</h2>
+                <h4>Clone the Repo</h4>
+                <code>git clone https://github.com/mgscion/Cybersecurity-News-Web-Scraper.git<br></code>
+                <code>cd Cybersecurity-News-Web-Scraper</code>
+                <h4>Install Dependencies</h4>
+                <code>pip install -r requirements.txt</code>
+                <h2>Usage</h2>
+                <p>Once you have installed the dependencies, you are ready to use the scraper! Open up
+                    a terminal and run the following commmands. This will run the program and open the display window for the news.</p> 
+                <code>python cyberscrape.py<br></code>
+                <code>python display.py</code>
+            </section>
+
+            <!-- What I learned -->
+            <section class="description">
+                <h2>What I learned</h2>
+                <p>This was my first project using Python. While I have a background in Java, I wanted to expand my knowledge of coding 
+                    while staying in the realm of cybersecurity. This project taught me the basics of Python, Beautiful Soup, Tkinter, and how to 
+                    install Python dependencies. I utilized my internet resources during this project such as online tutorials from youtube and provided documentation on GitHub for the libraries and packages.
+                </p>
+            </section>
+
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section class="split contact">
+            <section class="alt">
+                <h3>Email</h3>
+                <p>MGHarris1110@outlook.com</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p>(412) 230-6331</p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="https://www.linkedin.com/in/matthew-harris-482693247/" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://www.instagram.com/mattt.harris/" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/mgscion" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
